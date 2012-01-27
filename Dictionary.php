@@ -21,7 +21,7 @@ class Dictionary {
         foreach($this->words as $word){
             $this->wordsHash[$this->createHash($word)] = true;
         }
-        echo count($this->words);
+        echo 'words: ' . count($this->words) . '   hashes: ' . count($this->wordsHash) . "\n";
     }
     
     public function createHash($str){
@@ -37,15 +37,6 @@ class Dictionary {
         return false;
     }
     
-    public function checkDictionaryComplete(){
-        $countErrors = 0;
-        foreach($this->words as $word){
-            if($this->checkDictionary($word) == false){
-                $countErrors++;
-            }
-        }
-        return $countErrors;
-    }
 }
 
 ?>

@@ -12,7 +12,7 @@ class DictionaryTest extends PHPUnit_Framework_TestCase {
      * @var Dictionary
      */
     protected $object;
-    protected $hashLength = 1;
+    protected $hashLength = 5;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -29,21 +29,22 @@ class DictionaryTest extends PHPUnit_Framework_TestCase {
     protected function tearDown() {
         
     }
-/*    
+
     public function testHash(){
-        $this->assertEquals('acbd', $this->object->createHash('foo'));
+        $this->assertEquals(substr('acbd18db4c',0,  $this->hashLength), $this->object->createHash('foo'));
     }
-*/    
+
     public function testDictionary() {
         $this->assertTrue($this->object->checkDictionary('werden'));
     }
-/*
     public function testDictionaryNegative() {
-        $this->assertFalse($this->object->checkDictionary('frankenstein'));
-    }
-*/
-    public function testDictionaryComplete() {
-        $this->assertEquals(0, $this->object->checkDictionaryComplete());
+        $this->assertFalse($this->object->checkDictionary('Frankenstein'));
+        $this->assertFalse($this->object->checkDictionary('Hase'));
+        $this->assertFalse($this->object->checkDictionary('Framework'));
+        $this->assertFalse($this->object->checkDictionary('Slackline'));
+        $this->assertFalse($this->object->checkDictionary('Abendbrot'));
+        $this->assertFalse($this->object->checkDictionary('Morgenrot'));
+        $this->assertFalse($this->object->checkDictionary('Rotwein'));
     }
 }
 
